@@ -1,0 +1,28 @@
+# dependencies
+/node_modules
+
+# Next.js
+/.next
+/out
+
+# test output
+/coverage
+/playwright-report
+/test-results
+
+# environment
+.env
+.env.local
+.env.*.local
+
+# Vercel local data; project.json is intentionally retained
+.vercel/*
+!.vercel/project.json
+
+# uploaded reference material is not application source
+/upload
+
+# local system files
+.DS_Store
+*.pem
+npm-debug.log*
