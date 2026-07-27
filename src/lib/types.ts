@@ -66,7 +66,6 @@ export interface Profile {
   full_name: string | null;
   email: string;
   role: UserRole;
-  access_suspended_at?: string | null;
 }
 
 export interface Engagement {

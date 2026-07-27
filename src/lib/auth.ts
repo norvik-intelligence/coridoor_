@@ -27,10 +27,15 @@ export async function requireUser() {
   }
   const { data: profile } = await supabase
     .from("profiles")
-    .select("id, full_name, email, role, access_suspended_at")
+    .select("id, full_name, email, role")
     .eq("id", user.id)
     .single<Profile>();
-  if (profile?.access_suspended_at) {
+  const { data: accessControl } = await supabase
+    .from("profile_access_controls")
+    .select("suspended_at")
+    .eq("user_id", user.id)
+    .maybeSingle();
+  if (accessControl?.suspended_at) {
     redirect("/unauthorized?reason=suspended");
   }
   return { supabase, user, profile };

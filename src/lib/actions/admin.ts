@@ -243,9 +243,10 @@ export async function setUserSuspension(formData: FormData) {
   if (userId === user.id) {
     redirect("/admin/users?error=Der+eigene+Adminzugang+kann+nicht+gesperrt+werden.");
   }
-  const { error } = await supabase.rpc("set_user_access_suspension", {
-    target_user_id: userId,
-    should_suspend: suspend
+  const { error } = await supabase.from("profile_access_controls").upsert({
+    user_id: userId,
+    suspended_at: suspend ? new Date().toISOString() : null,
+    updated_at: new Date().toISOString()
   });
   if (error) {
     redirect("/admin/users?error=Die+Zugangsänderung+konnte+nicht+gespeichert+werden.");
