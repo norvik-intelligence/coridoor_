@@ -40,6 +40,7 @@ export default async function LoginPage({
         </label>
         <button className="button button-dark" type="submit">Sicher einloggen</button>
       </form>
+      <Link className="button button-ghost" href="/demo">Deal Room ohne Login testen</Link>
       <p className="auth-switch">
         Noch kein Zugang? <Link href="/register">Vertrauliche Analyse anfragen</Link>
       </p>
