@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/manrope";
 import "@fontsource/instrument-serif/400.css";
 import "./globals.css";
+import "./coridoor-10.css";
 import { getSiteUrl } from "@/lib/env";
 
 const siteUrl = getSiteUrl();
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f4f3ee",
+  themeColor: "#f3f1ea",
   colorScheme: "light"
 };
 
